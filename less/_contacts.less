@@ -1,0 +1,76 @@
+@import "_var.less";
+
+
+.ba-map {
+	height: 500px;
+}
+.ba-contact {
+	padding: 20px 0 50px;
+
+	&__info {
+		@media (min-width: 768px) {
+			padding-right: 60px;
+		}
+
+	}
+	&__title {
+		font: 600 24px/1 @sub-font-family;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+	}
+	&__bold {
+		font-weight: 700;
+	}
+	a {
+		color: @primary;
+		text-decoration: none;
+	}
+	&__list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		&--hours {
+			padding-left: 47px;
+		}
+	}
+	&__descr {
+
+		@media(min-width: 960px) {
+			padding-left: 28px;
+		}
+
+		p {
+			margin: 12px 0;
+		}
+	}
+	&__time {
+		@media(min-width: 960px) {
+			padding-left: 28px;
+		}
+		margin-top: 42px;
+	}
+}
+
+.ba-contact-form {
+	margin-top: 25px;
+	&__field {
+		width: 100%;
+		display: block;
+		padding: 0 15px;
+		line-height: 41px;
+		border: 2px solid #8a8888;
+		margin-bottom: 15px;
+		outline: none;
+		@media (min-width: 768px) {
+			width: 60%;
+		}
+		&:focus {
+			border: 2px solid @primary;
+		}
+		&--area {
+			width: 100%;
+			resize: none;
+			margin-bottom: 27px;
+		}
+	}
+}
