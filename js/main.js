@@ -38,6 +38,25 @@
 			loopAtEnd: true
 		});
 
+		//services section
+		$('.ba-services-content').on( 'mouseenter', '.ba-services-content__link', function(e) {
+			var filterValue = $(this).attr('data-name');
+			var filterText = $('.ba-services-description').find('[data-name = ' + filterValue + ']');
+
+			filterText
+				.siblings()
+					.removeClass('ba-services-description__item--active')
+					.end()
+				.addClass('ba-services-description__item--active');
+
+
+			e.preventDefault();
+		});
+
+
+});
+	$(window).load(function() {
+
 		//filter and layout
 
 		var $grid = $('.ba-filter-grid').isotope({
@@ -59,39 +78,20 @@
 			e.preventDefault();
 		});
 
+      	//map
+      	var $mapDiv = $('.ba-map')[0],
+     	 	$centerCoordinates = {lat: 52.131075, lng: -106.639144};
+      		$coordinates = 	{lat: 52.129503, lng: -106.660388};
 
+      	var $map = new google.maps.Map($mapDiv, {
+      		center: $centerCoordinates,
+      		zoom: 14
+      	});
 
-		//services section
-		$('.ba-services-content').on( 'mouseenter', '.ba-services-content__link', function(e) {
-			var filterValue = $(this).attr('data-name');
-			var filterText = $('.ba-services-description').find('[data-name = ' + filterValue + ']');
-
-			filterText
-				.siblings()
-					.removeClass('ba-services-description__item--active')
-					.end()
-				.addClass('ba-services-description__item--active');
-
-
-			e.preventDefault();
-		});
-
-
-});
-	$(window).load(function() {
-      //map
-      var $mapDiv = $('.ba-map')[0],
-      $centerCoordinates = {lat: 52.131075, lng: -106.639144};
-      $coordinates = 	{lat: 52.129503, lng: -106.660388};
-      var $map = new google.maps.Map($mapDiv, {
-      	center: $centerCoordinates,
-      	zoom: 14
-      });
-
-      var $marker = new google.maps.Marker({
-      	position: $coordinates,
-      	map: $map,
-      	icon: 'img/marker.svg'
+      	var $marker = new google.maps.Marker({
+      		position: $coordinates,
+      		map: $map,
+      		icon: 'img/marker.svg'
       });
   });
 })(jQuery);
